@@ -1,14 +1,14 @@
 # 🎥 YouTube Video Success Predictor
 
-A Machine Learning project that predicts the success category of a YouTube video using metadata such as title, description, tags, and engagement metrics.
+A full-stack Machine Learning web application that predicts the success category of a YouTube video using metadata such as title, description, tags, and engagement metrics.
 
-This project demonstrates an end-to-end ML workflow including data preprocessing, feature engineering, model training, evaluation, and deployment-ready architecture.
+This project demonstrates an end-to-end ML workflow including data preprocessing, feature engineering, model training, API development, and frontend deployment.
 
 ---
 
 ## 🚀 Project Overview
 
-YouTube video performance depends on multiple factors such as engagement, content presentation, and publishing patterns.
+YouTube video performance depends on multiple factors such as engagement, publishing patterns, and content presentation.
 This project builds a predictive model that classifies videos into success categories based on available metadata.
 
 ### 🎯 Prediction Categories
@@ -24,46 +24,52 @@ This project builds a predictive model that classifies videos into success categ
 
 The project follows a structured ML workflow:
 
-1. Data Collection & Understanding
-2. Data Cleaning & Preprocessing
-3. Feature Engineering
-4. Model Training (XGBoost)
-5. Model Evaluation
-6. Feature Importance Analysis
+1. Data Understanding & Cleaning
+2. Feature Engineering
+3. Model Training using XGBoost
+4. Model Evaluation
+5. Feature Importance Analysis
+6. API Integration (FastAPI)
+7. Frontend Development (Streamlit)
 
 ---
 
-## 📊 Dataset
+## 🖥️ Application UI
 
-Dataset used:
+### 🎬 Video Information & Input Interface
 
-* YouTube Trending Videos Dataset (India)
+![UI Screenshot 1](photos/UI1.png)
 
-Features available:
+### 📊 Engagement Metrics & Publishing Details
 
-* Title
-* Description
-* Tags
-* Publish Time
-* Views
-* Likes
-* Dislikes
-* Comment Count
-* Category ID
+![UI Screenshot 2](photos/UI2.png)
+
+---
+
+## 📈 Model Feature Importance
+
+The following graph shows the importance of engineered features used by the XGBoost model.
+
+![Feature Importance](photos/graph.png)
+
+Key observations:
+
+* Engagement ratios significantly influence prediction.
+* Title characteristics and description length contribute strongly.
+* Publishing hour has moderate impact on performance.
 
 ---
 
 ## ⚙️ Feature Engineering
 
-The following features were created:
-
 ### Text-Based Features
 
 * Title length
 * Description length
-* Number of tags
 * Title word count
 * Uppercase word count
+* Average word length
+* Title contains number
 
 ### Engagement Features
 
@@ -83,23 +89,27 @@ The following features were created:
 
 Chosen because:
 
-* Strong performance on tabular datasets
-* Handles non-linear relationships well
-* Provides feature importance insights
+* Excellent performance on tabular datasets
+* Handles non-linear relationships effectively
+* Provides interpretable feature importance
 
 Model accuracy achieved:
 
 ```
-~60% accuracy (baseline model)
+~60% baseline accuracy
 ```
 
 ---
 
-## 📈 Evaluation Metrics
+## 🏗️ System Architecture
 
-* Accuracy Score
-* Confusion Matrix
-* Feature Importance Visualization
+```
+Streamlit Frontend
+        ↓
+FastAPI Backend
+        ↓
+XGBoost ML Model
+```
 
 ---
 
@@ -110,8 +120,10 @@ Model accuracy achieved:
 * NumPy
 * Scikit-learn
 * XGBoost
+* FastAPI
+* Streamlit
 * Matplotlib
-* Jupyter Notebook
+* Joblib
 * VS Code
 
 ---
@@ -121,10 +133,10 @@ Model accuracy achieved:
 ```
 youtube-video-success-predictor/
 │
-├── data/                  # Dataset (ignored in Git)
-├── notebooks/             # Development notebooks
-├── models/                # Saved models
-├── app/                   # API / deployment (future)
+├── app/                # FastAPI backend & Streamlit frontend
+├── notebook/           # Model development notebooks
+├── models/             # Saved ML models
+├── photos/             # UI screenshots & graphs
 ├── README.md
 └── .gitignore
 ```
@@ -133,11 +145,11 @@ youtube-video-success-predictor/
 
 ## 🔮 Future Improvements
 
-* Neural Network with text embeddings
-* Sentence Transformers for title understanding
-* FastAPI deployment
-* Web interface for prediction
-* Real-time YouTube API integration
+* Neural network with text embeddings
+* Sentence Transformer integration
+* Confidence score visualization
+* User authentication
+* Cloud deployment
 
 ---
 
